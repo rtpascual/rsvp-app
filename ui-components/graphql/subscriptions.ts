@@ -3,16 +3,12 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateGuest = /* GraphQL */ `
-  subscription OnCreateGuest(
-    $filter: ModelSubscriptionGuestFilterInput
-    $owner: String
-  ) {
-    onCreateGuest(filter: $filter, owner: $owner) {
+  subscription OnCreateGuest($filter: ModelSubscriptionGuestFilterInput) {
+    onCreateGuest(filter: $filter) {
       createdAt
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt
@@ -21,16 +17,12 @@ export const onCreateGuest = /* GraphQL */ `
   }
 `;
 export const onDeleteGuest = /* GraphQL */ `
-  subscription OnDeleteGuest(
-    $filter: ModelSubscriptionGuestFilterInput
-    $owner: String
-  ) {
-    onDeleteGuest(filter: $filter, owner: $owner) {
+  subscription OnDeleteGuest($filter: ModelSubscriptionGuestFilterInput) {
+    onDeleteGuest(filter: $filter) {
       createdAt
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt
@@ -39,16 +31,12 @@ export const onDeleteGuest = /* GraphQL */ `
   }
 `;
 export const onUpdateGuest = /* GraphQL */ `
-  subscription OnUpdateGuest(
-    $filter: ModelSubscriptionGuestFilterInput
-    $owner: String
-  ) {
-    onUpdateGuest(filter: $filter, owner: $owner) {
+  subscription OnUpdateGuest($filter: ModelSubscriptionGuestFilterInput) {
+    onUpdateGuest(filter: $filter) {
       createdAt
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt

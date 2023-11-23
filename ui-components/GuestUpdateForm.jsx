@@ -30,13 +30,11 @@ export default function GuestUpdateForm(props) {
     phone: "",
     email: "",
     rsvp: false,
-    owner: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [phone, setPhone] = React.useState(initialValues.phone);
   const [email, setEmail] = React.useState(initialValues.email);
   const [rsvp, setRsvp] = React.useState(initialValues.rsvp);
-  const [owner, setOwner] = React.useState(initialValues.owner);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = guestRecord
@@ -46,7 +44,6 @@ export default function GuestUpdateForm(props) {
     setPhone(cleanValues.phone);
     setEmail(cleanValues.email);
     setRsvp(cleanValues.rsvp);
-    setOwner(cleanValues.owner);
     setErrors({});
   };
   const [guestRecord, setGuestRecord] = React.useState(guestModelProp);
@@ -70,7 +67,6 @@ export default function GuestUpdateForm(props) {
     phone: [{ type: "Phone" }],
     email: [{ type: "Email" }],
     rsvp: [],
-    owner: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -102,7 +98,6 @@ export default function GuestUpdateForm(props) {
           phone: phone ?? null,
           email: email ?? null,
           rsvp: rsvp ?? null,
-          owner: owner ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -167,7 +162,6 @@ export default function GuestUpdateForm(props) {
               phone,
               email,
               rsvp,
-              owner,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -196,7 +190,6 @@ export default function GuestUpdateForm(props) {
               phone: value,
               email,
               rsvp,
-              owner,
             };
             const result = onChange(modelFields);
             value = result?.phone ?? value;
@@ -224,7 +217,6 @@ export default function GuestUpdateForm(props) {
               phone,
               email: value,
               rsvp,
-              owner,
             };
             const result = onChange(modelFields);
             value = result?.email ?? value;
@@ -252,7 +244,6 @@ export default function GuestUpdateForm(props) {
               phone,
               email,
               rsvp: value,
-              owner,
             };
             const result = onChange(modelFields);
             value = result?.rsvp ?? value;
@@ -267,34 +258,6 @@ export default function GuestUpdateForm(props) {
         hasError={errors.rsvp?.hasError}
         {...getOverrideProps(overrides, "rsvp")}
       ></SwitchField>
-      <TextField
-        label="Owner"
-        isRequired={false}
-        isReadOnly={false}
-        value={owner}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              phone,
-              email,
-              rsvp,
-              owner: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.owner ?? value;
-          }
-          if (errors.owner?.hasError) {
-            runValidationTasks("owner", value);
-          }
-          setOwner(value);
-        }}
-        onBlur={() => runValidationTasks("owner", owner)}
-        errorMessage={errors.owner?.errorMessage}
-        hasError={errors.owner?.hasError}
-        {...getOverrideProps(overrides, "owner")}
-      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

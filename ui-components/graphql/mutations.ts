@@ -12,7 +12,6 @@ export const createGuest = /* GraphQL */ `
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt
@@ -30,7 +29,6 @@ export const deleteGuest = /* GraphQL */ `
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt
@@ -48,7 +46,6 @@ export const updateGuest = /* GraphQL */ `
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt

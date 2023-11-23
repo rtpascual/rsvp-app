@@ -21,14 +21,12 @@ export declare type GuestUpdateFormInputValues = {
     phone?: string;
     email?: string;
     rsvp?: boolean;
-    owner?: string;
 };
 export declare type GuestUpdateFormValidationValues = {
     name?: ValidationFunction<string>;
     phone?: ValidationFunction<string>;
     email?: ValidationFunction<string>;
     rsvp?: ValidationFunction<boolean>;
-    owner?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type GuestUpdateFormOverridesProps = {
@@ -37,7 +35,6 @@ export declare type GuestUpdateFormOverridesProps = {
     phone?: PrimitiveOverrideProps<TextFieldProps>;
     email?: PrimitiveOverrideProps<TextFieldProps>;
     rsvp?: PrimitiveOverrideProps<SwitchFieldProps>;
-    owner?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type GuestUpdateFormProps = React.PropsWithChildren<{
     overrides?: GuestUpdateFormOverridesProps | undefined | null;

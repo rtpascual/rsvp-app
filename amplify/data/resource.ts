@@ -15,7 +15,7 @@ const schema = a.schema({
       email: a.email(),
       rsvp: a.boolean(),
     })
-    .authorization([a.allow.owner(), a.allow.public("iam")])
+    .authorization([a.allow.private()])
 });
 
 export type Schema = ClientSchema<typeof schema>;

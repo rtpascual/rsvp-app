@@ -9,7 +9,6 @@ export const getGuest = /* GraphQL */ `
       email
       id
       name
-      owner
       phone
       rsvp
       updatedAt
@@ -37,7 +36,6 @@ export const listGuests = /* GraphQL */ `
         email
         id
         name
-        owner
         phone
         rsvp
         updatedAt
