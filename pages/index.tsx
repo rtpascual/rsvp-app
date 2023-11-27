@@ -40,9 +40,7 @@ export default function Home() {
       >
       <h1>Guest List</h1>
       <Button onClick={() => router.push('/guest/add')}>Add Guest</Button>
-      <Table
-        highlightOnHover={true}
-      >
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell as='th'>Name</TableCell>
@@ -54,7 +52,7 @@ export default function Home() {
         </TableHead>
         <TableBody>
           {guests.map((guest) => (
-            <TableRow key={guest.id} onClick={() => editGuest(guest.id)}>
+            <TableRow key={guest.id}>
               <TableCell>{guest.name}</TableCell>
               <TableCell>{guest.email}</TableCell>
               <TableCell>{guest.phone}</TableCell>
