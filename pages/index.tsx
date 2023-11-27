@@ -4,11 +4,12 @@ import { useRouter } from 'next/router';
 import { Schema } from '@/amplify/data/resource';
 import '@aws-amplify/ui-react/styles.css';
 import { Button, Flex, Table, TableCell, TableBody, TableHead, TableRow, ButtonGroup } from '@aws-amplify/ui-react';
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 
 // generate your data client using the Schema from your backend
 const client = generateClient<Schema>();
 
-export default function HomePage() {
+export default function Home() {
   const router = useRouter();
   const [guests, setGuests] = useState<Schema['Guest'][]>([]);
 
@@ -60,8 +61,8 @@ export default function HomePage() {
               <TableCell>{guest.rsvp ? 'Y' : 'N'}</TableCell>
               <TableCell>
                 <ButtonGroup>
-                  <Button onClick={() => editGuest(guest.id)}>Edit</Button>
-                  <Button onClick={() => deleteGuest(guest.id)}>Delete</Button>
+                  <Button onClick={() => editGuest(guest.id)}><AiFillEdit /></Button>
+                  <Button onClick={() => deleteGuest(guest.id)}><AiFillDelete /></Button>
                 </ButtonGroup>
               </TableCell>
             </TableRow>
